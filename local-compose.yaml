@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./DockerFiles/App/Dockerfile
+    image: cyclopse:latest
+    command: sleep 10000
+    restart: always
+    volumes:
+      - ./backend:/var/www/app
+    environment:
+      - FLASK_APP=/var/www/app
+
+volumes:
+  data:
